@@ -1,7 +1,0 @@
-README.md
-setup.py
-Second_Hand_Car_Price_Estimator.egg-info/PKG-INFO
-Second_Hand_Car_Price_Estimator.egg-info/SOURCES.txt
-Second_Hand_Car_Price_Estimator.egg-info/dependency_links.txt
-Second_Hand_Car_Price_Estimator.egg-info/requires.txt
-Second_Hand_Car_Price_Estimator.egg-info/top_level.txt
