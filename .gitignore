@@ -21,6 +21,7 @@ sdist/
 var/
 wheels/
 share/python-wheels/
+Second_Hand_Car_Price_Estimator.egg-info
 *.egg-info/
 .installed.cfg
 *.egg
