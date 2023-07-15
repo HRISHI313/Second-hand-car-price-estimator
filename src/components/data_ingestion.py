@@ -29,6 +29,7 @@ class Dataingestion:
             if not os.path.exists('artifacts'):
                 os.makedirs('artifacts')
 
+            df.drop_duplicates(inplace=True)
             df.to_csv(self.Ingestion_config.raw_data_path, header=True, index=False)
             logging.info('Raw data has been stored in the artifacts folder')
 
