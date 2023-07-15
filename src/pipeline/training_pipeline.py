@@ -9,7 +9,7 @@ from src.exception import CustomException
 
 from src.components.data_ingestion import Dataingestion
 from src.components.data_transformation import DataTransformation
-# from src.components.Model_Trainer import ModelTrainer
+from src.components.model_trainer import Model_Trainer
 
 if __name__ == '__main__':
     # Create an instance of the DataIngestion class
@@ -23,3 +23,9 @@ if __name__ == '__main__':
 
     # Call the method to initiate data Transformation
     train_arr,test_arr,_= data_transformation.Initiate_data_transformation(train_data_path,test_data_path)
+
+    #Create an instance of the Model training class
+    model_trainer = Model_Trainer()
+
+    # Call the method to initiate model trainer
+    model_trainer.initiate_model_training(train_arr,test_arr)
