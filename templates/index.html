@@ -1,79 +1,147 @@
+<!DOCTYPE html>
 <html>
-<body>
-    <div class="login">
-       <h1>Second Hand Car Price Estimator</h1>
+<head>
+    <title>Second Hand Car Price Estimator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 20px;
+        }
 
-       <form action="{{ url_for('predict') }}" method="post">
-        <h1>
-            <legend>Predict Second Hand Car Price</legend>
-        </h1>
-        <div class="mb-3">
-            <label class="form-label">Car Name:</label>
-            <input class="form-control" type="text" name="car_name" placeholder="Enter Car Name" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Brand:</label>
-            <input class="form-control" type="text" name="brand" placeholder="Enter Brand" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Model:</label>
-            <input class="form-control" type="text" name="model" placeholder="Enter Model" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Vehicle Age:</label>
-            <input class="form-control" type="number" name="vehicle_age" placeholder="Enter Vehicle Age" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Kilometers Driven:</label>
-            <input class="form-control" type="number" name="km_driven" placeholder="Enter Kilometers Driven" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Seller Type:</label>
-            <select class="form-control" name="seller_type" placeholder="Select Seller Type" required>
-                <option class="placeholder" selected disabled value="">Select Seller Type</option>
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result {
+            text-align: center;
+            font-size: 20px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .car-image {
+            width: 100%;
+            max-height: 200px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Second Hand Car Price Estimator</h1>
+        <img class="car-image" src="{{ url_for('static', filename='car1.jpg') }}" alt="Car Image">
+        <form action="{{ url_for('predict') }}" method="post">
+            <label for="car_name">Car Name:</label>
+            <input class="form-control" type="text" id="car_name" name="car_name" placeholder="Enter Car Name" required>
+
+            <label for="brand">Brand:</label>
+            <input class="form-control" type="text" id="brand" name="brand" placeholder="Enter Brand" required>
+
+            <label for="model">Model:</label>
+            <input class="form-control" type="text" id="model" name="model" placeholder="Enter Model" required>
+
+            <label for="vehicle_age">Vehicle Age:</label>
+            <input class="form-control" type="number" id="vehicle_age" name="vehicle_age" placeholder="Enter Vehicle Age" required>
+
+            <label for="km_driven">Kilometers Driven:</label>
+            <input class="form-control" type="number" id="km_driven" name="km_driven" placeholder="Enter Kilometers Driven" required>
+
+            <label for="seller_type">Seller Type:</label>
+            <select id="seller_type" name="seller_type" required>
+                <option value="" selected disabled>Select Seller Type</option>
                 <option value="Individual">Individual</option>
                 <option value="Dealer">Dealer</option>
             </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Fuel Type:</label>
-            <select class="form-control" name="fuel_type" placeholder="Select Fuel Type" required>
-                <option class="placeholder" selected disabled value="">Select Fuel Type</option>
+
+            <label for="fuel_type">Fuel Type:</label>
+            <select id="fuel_type" name="fuel_type" required>
+                <option value="" selected disabled>Select Fuel Type</option>
                 <option value="Petrol">Petrol</option>
                 <option value="Diesel">Diesel</option>
                 <option value="CNG">CNG</option>
             </select>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Transmission Type:</label>
-            <select class="form-control" name="transmission_type" placeholder="Select Transmission Type" required>
-                <option class="placeholder" selected disabled value="">Select Transmission Type</option>
+
+            <label for="transmission_type">Transmission Type:</label>
+            <select id="transmission_type" name="transmission_type" required>
+                <option value="" selected disabled>Select Transmission Type</option>
                 <option value="Manual">Manual</option>
                 <option value="Automatic">Automatic</option>
             </select>
+
+            <label for="mileage">Mileage (kmpl):</label>
+            <input class="form-control" type="number" id="mileage" name="mileage" step="0.01" placeholder="Enter Mileage (kmpl)" required>
+
+            <label for="engine">Engine Displacement (cc):</label>
+            <input class="form-control" type="number" id="engine" name="engine" placeholder="Enter Engine Displacement (cc)" required>
+
+            <label for="max_power">Maximum Power (bhp):</label>
+            <input class="form-control" type="number" id="max_power" name="max_power" step="0.01" placeholder="Enter Maximum Power (bhp)" required>
+
+            <label for="seats">Number of Seats:</label>
+            <input class="form-control" type="number" id="seats" name="seats" placeholder="Enter Number of Seats" required>
+
+            <input class="btn btn-primary" type="submit" value="Predict Selling Price">
+        </form>
+
+        <div class="result">
+            {% if results %}
+                The predicted selling price is {{ results }}
+            {% endif %}
         </div>
-        <div class="mb-3">
-            <label class="form-label">Mileage (kmpl):</label>
-            <input class="form-control" type="number" name="mileage" placeholder="Enter Mileage (kmpl)" step="0.01" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Engine Displacement (cc):</label>
-            <input class="form-control" type="number" name="engine" placeholder="Enter Engine Displacement (cc)" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Maximum Power (bhp):</label>
-            <input class="form-control" type="number" name="max_power" placeholder="Enter Maximum Power (bhp)" step="0.01" required>
-        </div>
-        <div class="mb-3">
-            <label class="form-label">Number of Seats:</label>
-            <input class="form-control" type="number" name="seats" placeholder="Enter Number of Seats" required>
-        </div>
-        <div class="mb-3">
-            <input class="btn btn-primary" type="submit" value="Predict Selling Price" required>
-        </div>
-    </form>
-    <h2>
-       The predicted selling price is {{ results }}
-    </h2>
+    </div>
 </body>
 </html>
