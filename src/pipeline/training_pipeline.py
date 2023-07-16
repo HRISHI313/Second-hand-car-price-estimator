@@ -11,6 +11,7 @@ from src.components.data_ingestion import Dataingestion
 from src.components.data_transformation import DataTransformation
 from src.components.model_trainer import Model_Trainer
 
+
 if __name__ == '__main__':
     # Create an instance of the DataIngestion class
     dataingestion = Dataingestion()

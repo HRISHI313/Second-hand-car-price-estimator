@@ -1,0 +1,79 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Second Hand Car Price Estimator</h1>
+
+       <form action="{{ url_for('predict') }}" method="post">
+        <h1>
+            <legend>Predict Second Hand Car Price</legend>
+        </h1>
+        <div class="mb-3">
+            <label class="form-label">Car Name:</label>
+            <input class="form-control" type="text" name="car_name" placeholder="Enter Car Name" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Brand:</label>
+            <input class="form-control" type="text" name="brand" placeholder="Enter Brand" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Model:</label>
+            <input class="form-control" type="text" name="model" placeholder="Enter Model" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Vehicle Age:</label>
+            <input class="form-control" type="number" name="vehicle_age" placeholder="Enter Vehicle Age" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Kilometers Driven:</label>
+            <input class="form-control" type="number" name="km_driven" placeholder="Enter Kilometers Driven" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Seller Type:</label>
+            <select class="form-control" name="seller_type" placeholder="Select Seller Type" required>
+                <option class="placeholder" selected disabled value="">Select Seller Type</option>
+                <option value="Individual">Individual</option>
+                <option value="Dealer">Dealer</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Fuel Type:</label>
+            <select class="form-control" name="fuel_type" placeholder="Select Fuel Type" required>
+                <option class="placeholder" selected disabled value="">Select Fuel Type</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Transmission Type:</label>
+            <select class="form-control" name="transmission_type" placeholder="Select Transmission Type" required>
+                <option class="placeholder" selected disabled value="">Select Transmission Type</option>
+                <option value="Manual">Manual</option>
+                <option value="Automatic">Automatic</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Mileage (kmpl):</label>
+            <input class="form-control" type="number" name="mileage" placeholder="Enter Mileage (kmpl)" step="0.01" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Engine Displacement (cc):</label>
+            <input class="form-control" type="number" name="engine" placeholder="Enter Engine Displacement (cc)" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Maximum Power (bhp):</label>
+            <input class="form-control" type="number" name="max_power" placeholder="Enter Maximum Power (bhp)" step="0.01" required>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Number of Seats:</label>
+            <input class="form-control" type="number" name="seats" placeholder="Enter Number of Seats" required>
+        </div>
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict Selling Price" required>
+        </div>
+    </form>
+    <h2>
+       The predicted selling price is {{ results }}
+    </h2>
+</body>
+</html>

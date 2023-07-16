@@ -76,7 +76,3 @@ class Model_Trainer:
 
         except Exception as e:
             logging.exception('Error occurred in Data ingestion Config: %s', e)
-
-
-
-

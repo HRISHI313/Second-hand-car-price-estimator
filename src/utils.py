@@ -6,6 +6,7 @@ import os
 import sys
 
 from sklearn.metrics import mean_squared_error, r2_score
+from sklearn.model_selection import RandomizedSearchCV
 
 
 from src.exception import CustomException
@@ -40,3 +41,11 @@ def evalute_model(x_train, y_train, x_test, y_test, models):
     except Exception as e:
         logging.exception('Error occurred in Data ingestion Config: %s', e)
 
+
+def load_object(file_path):
+    try:
+        with open(file_path, "rb") as file_obj:
+            return pickle.load(file_obj)
+
+    except Exception as e:
+        raise CustomException(e, sys)
