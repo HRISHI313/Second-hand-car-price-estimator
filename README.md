@@ -74,7 +74,7 @@ python app.py
 If you would like to contribute to the Second Hand Car Price Estimator, feel free to create a pull request. Your contributions are welcome!
 
 ## License
-This project is licensed under the MIT License. See the [LICENSE] file for details.
+This project is licensed under the Apache-2.0 license. See the [LICENSE] file for details.
 
 ## Acknowledgements
 The machine learning model used in this project was trained on a dataset from (provide the source of the dataset).
