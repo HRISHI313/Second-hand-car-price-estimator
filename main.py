@@ -36,7 +36,8 @@ def predict():
 
         predict_pipeline = PredictPipeline()
         results = predict_pipeline.predict(pred_df)
-        return render_template('index.html', results=results[0])
+        results = round(results[0], 2)
+        return render_template('index.html', results=results)
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", debug=True)

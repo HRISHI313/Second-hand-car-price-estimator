@@ -89,18 +89,10 @@
             margin-top: 20px;
         }
 
-        .car-image-container {
-            width: 100%;
-            max-height: 350px;
-            overflow: hidden;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
         .car-image {
             width: 100%;
-            height: auto;
-            display: block;
+            max-height: 200px;
+            margin-bottom: 20px;
         }
 
         /* Additional Styling */
@@ -141,9 +133,7 @@
 <body>
     <div class="container">
         <h1>Second Hand Car Price Estimator</h1>
-        <div class="car-image-container">
-            <img class="car-image" src="{{ url_for('static', filename='car1.jpg') }}" alt="Car Image">
-        </div>
+        <img class="car-image" src="{{ url_for('static', filename='car1.jpg') }}" alt="Car Image">
         <form action="{{ url_for('predict') }}" method="post">
             <div class="form-wrapper">
                 <div class="form-field">
