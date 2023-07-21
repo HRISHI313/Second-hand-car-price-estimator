@@ -70,6 +70,9 @@ python app.py
 3. Click on the "Predict Selling Price" button to get the estimated selling price for the car.
 4. The predicted selling price will be displayed on the screen.
 
+## Image
+![Car Image](static/Second Hand Car Price Estimator-1.png)
+
 ## Contributing
 If you would like to contribute to the Second Hand Car Price Estimator, feel free to create a pull request. Your contributions are welcome!
 
