@@ -71,7 +71,8 @@ python app.py
 4. The predicted selling price will be displayed on the screen.
 
 ## Image
-![Car Image](static/Second Hand Car Price Estimator-1.png)
+![Web capture_21-7-2023_212423_127 0 0 1](https://github.com/HRISHI313/Second-hand-car-price-estimator/assets/121008747/2f23df6d-6f5c-4eaf-b357-7ee857ec09b4)
+
 
 ## Contributing
 If you would like to contribute to the Second Hand Car Price Estimator, feel free to create a pull request. Your contributions are welcome!
